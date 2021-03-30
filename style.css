@@ -27,9 +27,14 @@ ul {
     /* justify-content: space-between; */
     background-color: #FFFFFF;
     /* height: 50px; */
-    width: 100vw;
+    /* width: 100vw; */
     border-bottom: 1px solid #dadada;
     padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100000;
   
 }
 .header-container {
@@ -83,6 +88,7 @@ ul {
     width: 200px;
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 .header-icon {
     color: black;
@@ -166,8 +172,15 @@ ul {
     margin: 30px 0;
     border-bottom: 1px #ccc solid;
     padding-bottom: 16px;
-    /* display: none; */
+    display: block;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
 }
+  
+  .header--unpinned {
+    -webkit-transform: translateY(-150%);
+    transform: translateY(-150%);
+  }
 .menu-container {
       display: flex;
       justify-content: space-between;
@@ -258,6 +271,7 @@ ul {
   top-wrapper
 ---------------------------------*/
 .top-wrapper {
+    margin-top: 88px;
     padding-top: 50px;
 }
 .category-btns {
@@ -319,6 +333,9 @@ ul {
 .kinds-tab-btn-underline:hover {
     border-bottom: 2px solid #1b1b1b;
 }
+/* .side-bar-btn:active {
+    font-weight: bold;
+} */
 
 /*---------------------------------
 product-wrapper
@@ -326,6 +343,7 @@ product-wrapper
 
 .product-container {
     display: flex;
+    flex-direction: row;
 }
 .side-bar {
     width: 250px;
@@ -359,7 +377,13 @@ product-wrapper
 .condition-color {
     height: 16px;
     width: 16px;
-    margin-right: 32px;
+    margin-right: 16px;
+}
+.condition-color-name {
+    font-size: .9375rem;
+}
+.sidebar-otherconditions-msg {
+    font-size: .9375rem;
 }
 .white {
     background-color: white;
@@ -377,8 +401,12 @@ product-wrapper
 }
 .product-card {
     padding: 12px;
-    /* border: black 1px solid; */
+    border: 1px solid white; 
     width: 200px;
+}
+.product-card:hover {
+    /* display: block; */
+    border: 1px solid black;
 }
 .product-img {
     width: 201px;
@@ -452,19 +480,88 @@ product-wrapper
 .evaluation-num {
     text-decoration: underline;
 }
+/* .dli-plus {
+    display: inline-block;
+    vertical-align: middle;
+    color: #333;
+    line-height: 1;
+    width: 1em;
+    height: 0.1em;
+    background: currentColor;
+    border-radius: 0.1em;
+    position: relative;
+  }
+  
+  .dli-plus::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: inherit;
+    transform: rotate(90deg);
+  }
+.toggle_contents {
+	border: 2px solid #d9d9d9;
+}
+.toggle_title {
+	position: relative;
+	padding: 15px;
+	cursor: pointer;
+	font-size: 15px;
+	text-align: center;
+	line-height: 1.4;
+}
+.toggle_btn {
+	position: absolute;
+	top: 50%;
+	right: 20px;
+	transform: translateY(-50%);
+	background: #0052a4;
+	display: block;
+	width: 24px;
+	height: 24px;
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	border-radius: 50%;
+}
+.toggle_btn:before, .toggle_btn:after {
+	display: block;
+	content: '';
+	background-color: black;
+	position: absolute;
+	width: 10px;
+	height: 2px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.toggle_btn:before {
+	width: 2px;
+	height: 10px;
+}
+.toggle_title.selected .toggle_btn:before {
+	content: normal;
+}
+.toggle_contents dd {
+	display: none;
+} */
 .panel {
     /* border: 1px solid #acac; */
     border-left: none;
     border-right:none;
     /* background-color: white; */
-    padding: 20px 20px;
+    padding: 0 20px;
     display: none;
   }
   .box {
     /* background-color: #eee; */
     display: block;
     display: inline-block;
-    width: 100%;
+    width: 251px;
     /* border: 1px solid #acac; */
   }
   .btn{
@@ -481,11 +578,129 @@ product-wrapper
   .fas {
     float: right;
   }
+  .price-panel-index {
+      margin-bottom: 12px;
+      font-size: 15px;
+  }
+  .price-panel-index label{
+      color: #1b1b1b;
+  }
+
+  .price-panel-index input[type="checkbox"]{
+    display: none;
+}
+/* チェックボックスの代わりを成すラベル */
+.price-panel-index input[type="checkbox"]+label{
+    display: none;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    padding-left: 32px;
+    /* padding-right: 16px; */
+}
+  /* ラベルの左に表示させる正方形のボックス□ */
+.price-panel-index input[type="checkbox"]+label::before{
+    content: "";
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    left: 0;
+    top: 50%;
+    border: 1px solid;
+    border-color:  #585753; /* 枠の色変更 お好きな色を */
+    background-color: #FFF; /* 背景の色変更 お好きな色を */
+}
+.price-panel-index input[type="checkbox"]:checked+label::before {
+
+    /*チェックしたときの箱の色を変える*/
+    background: black;
+
+}
+/* .price-panel-index input[type="checkbox"]:checked:hover { */
+
+    /*チェックしたときの箱の色を変える*/
+    /* background: gray; */
+
+/* } */
+
+/* チェックが入った時のレ点 */
+.price-panel-index input[type="checkbox"]:checked+label::after{
+    content: "";
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    width: 18px;
+    height: 9px;
+    margin-top: -9px;
+    top: 50%;
+    left: 3px;
+    transform: rotate(-45deg);
+    border-bottom: 3px solid;
+    border-left: 3px solid;
+    border-color:  white; /* チェックの色変更 お好きな色を */
+
+}
+.sidebar-size-list1 {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+.sidebar-size-btn {
+    border: 1px #dadada solid;
+    height: 32px;
+    width: 32px;
+    padding: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .8125rem;
+    color: #dadada;
+}
+.sidebar-size-btn:hover {
+    border: 1px black solid;
+}
+.sidebar-size-list2 {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+.sidebar-size-btn-num {
+    border: 1px #dadada solid;
+    height: 32px;
+    width: 75px;
+    padding: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .8125rem;
+    color: #dadada;
+}
+.sidebar-size-num:hover {
+    border: 1px black solid;
+}
+.sidebar-size-btn-num:hover {
+    border: 1px black solid;
+}
+.show-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.show-more-btn {
+    text-decoration: underline;
+    color: black;
+    font-size: 13px;
+}
 /*---------------------------------
 recommend-wrapper
 ---------------------------------*/
 .recommend-wrapper {
     margin-bottom: 52px;
+    padding-top: 30px;
 }
 .recommend-cards {
     display: flex;
@@ -493,6 +708,7 @@ recommend-wrapper
 }
 .recommend-heading {
     font-size: 30px;
+    margin-bottom: 24px;
 }
 .recommend-card {
     padding-right: 20px;
@@ -504,6 +720,10 @@ recommend-wrapper
 }
 .recommend-colors {
     padding-top: 16px;
+    display: flex;
+}
+.color {
+    margin-right: 6px;
 }
 .recommend-text {
     display: flex;
@@ -537,6 +757,7 @@ footer
 .footer-onlinestores-btns {
     display: flex;
     margin-top: 30px;
+    padding-left: 16px;
 }
 .border-right {
     border-right: 1px solid black;
@@ -562,4 +783,96 @@ small {
 .sns-btn {
     font-size: 40px;
     margin: 0 16px 16px 0;
+}
+
+
+
+
+
+.plus-minus {
+    display: block;
+    position: relative;
+  }
+  
+  /* 二本の横棒を作成する */
+  .plus-minus::before,
+  .plus-minus::after {
+    content: '';
+    display: block;
+    width: 15px;
+    height: 3px;
+    border-radius: 5px;
+    background: blue;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .plus-minus::after {
+    background: red;
+    /* 横棒を縦にするために90℃回転させる */
+    /* transform: translateY(-50%) rotate(90deg); */
+    /* プラスからマイナスへの切り替えをゆっくり行いアニメーションさせる */
+    transition: 0.5s;
+    
+  }
+  
+  /*
+  プラスがクリックされたら縦棒を横にしてマイナスにする疑似要素
+  jQueryで付け外しを行う
+  */
+  .active::after {
+    transform: rotate(0);
+    transition: 0.5s;
+    display: none;
+  }
+
+  .container {
+    margin: 0 auto;
+    padding: 40px;
+    width: 100%;
+    color: #333;
+    background: white;
+  }
+  
+  .slick-slide {
+    text-align: center;
+    color: #419be0;
+    background: white;
+  }
+
+  .toggle_btn {
+	position: absolute;
+	top: 50%;
+	right: 20px;
+	transform: translateY(-50%);
+	background: #0052a4;
+	display: block;
+	width: 24px;
+	height: 24px;
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	border-radius: 50%;
+}
+.toggle_btn:before, .toggle_btn:after {
+	display: block;
+	content: '';
+	background-color: #fff;
+	position: absolute;
+	width: 10px;
+	height: 2px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.toggle_btn:before {
+	width: 2px;
+	height: 10px;
+}
+.toggle_title.selected .toggle_btn:before {
+	content: normal;
+}
+.toggle_contents dd {
+	display: none;
 }
