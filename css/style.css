@@ -1,6 +1,7 @@
 * {
     padding: 0px;
     margin: 0px;
+    box-sizing: border-box;
 }
 
 /* a {
@@ -180,24 +181,81 @@ ul {
       align-items: center;
   }
   @media only screen and (max-width: 750px) {
-    
+    header {
+        overflow: hidden;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     .header-wrapper {
         padding: 15px 16px;
         display: flex;
         justify-content: space-between;
-        /* width: ; */
+        align-items: center;
         max-width: 100%;
         overflow:hidden;
         box-sizing: border-box;
+        width: 100vw;
+        height: 71px;
+        border-bottom: 2px solid #dadada;
+
     }
-    .header-hamberger {
-        display: none;
+    .header-logo {
+        height: 40px;
     }
-    .fa-user {
-        height: 24px;
+    .header-right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+    }
+    .header-btn {
+        height: 100%;
+        
+    }
+    .header-accont-btns {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+    }
+    .header-accont-btn-text {
+        font-size: 11px;
         color: black;
     }
-    .header-accont-btn {
+    .header-account-btn {
+        color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 24px;
+        width: 24px;
+    }
+    /* .header-btn {
+        height: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    } */
+    /* .header-hamberger {
+        display: none;
+    } */
+    /* .fa-user {
+        font-size: 24px;
+        color: black;
+    } */
+    /* .header-right {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    } */
+    /* .header-accont-btn {
         text-decoration: none;
         color: black;
         font-size: 11px;
@@ -205,7 +263,7 @@ ul {
     }
     .header-accont-btn {
         width: 100%;
-    }
+    } */
 }
   /*---------------------------------
   menu-wrapper
