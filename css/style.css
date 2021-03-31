@@ -20,6 +20,20 @@ ul {
     text-decoration: underline;
 }
 /*---------------------------------
+  レスポンシブ対応
+---------------------------------*/
+.pc { display: block !important; }
+.sp { 
+    display: none !important; }
+@media only screen and (max-width: 750px) {
+    .pc { display: none !important; }
+    .sp { 
+        display: block !important; 
+        
+    }
+}
+
+/*---------------------------------
   header
 ---------------------------------*/
 .header-wrapper {
@@ -165,6 +179,34 @@ ul {
       justify-content: center;
       align-items: center;
   }
+  @media only screen and (max-width: 750px) {
+    
+    .header-wrapper {
+        padding: 15px 16px;
+        display: flex;
+        justify-content: space-between;
+        /* width: ; */
+        max-width: 100%;
+        overflow:hidden;
+        box-sizing: border-box;
+    }
+    .header-hamberger {
+        display: none;
+    }
+    .fa-user {
+        height: 24px;
+        color: black;
+    }
+    .header-accont-btn {
+        text-decoration: none;
+        color: black;
+        font-size: 11px;
+        font-weight: bold;
+    }
+    .header-accont-btn {
+        width: 100%;
+    }
+}
   /*---------------------------------
   menu-wrapper
 ---------------------------------*/
