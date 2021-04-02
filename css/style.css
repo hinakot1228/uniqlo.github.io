@@ -26,7 +26,7 @@ ul {
 .pc { display: block !important; }
 .sp { 
     display: none !important; }
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 480px) {
     .pc { display: none !important; }
     .sp { 
         display: block !important; 
@@ -180,8 +180,8 @@ ul {
       justify-content: center;
       align-items: center;
   }
-  @media only screen and (max-width: 750px) {
-    header {
+  @media only screen and (max-width: 480px) {
+    /* header {
         overflow: hidden;
         box-sizing: border-box;
         width: 100%;
@@ -235,35 +235,125 @@ ul {
         align-items: center;
         height: 24px;
         width: 24px;
-    }
-    /* .header-btn {
-        height: 24px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    }    
+    .header-hamberger-menu-list {
+        padding: 20px;
+        border-bottom: 1px solid black;
     } */
-    /* .header-hamberger {
-        display: none;
-    } */
-    /* .fa-user {
-        font-size: 24px;
-        color: black;
-    } */
-    /* .header-right {
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    } */
-    /* .header-accont-btn {
-        text-decoration: none;
-        color: black;
-        font-size: 11px;
-        font-weight: bold;
-    }
-    .header-accont-btn {
-        width: 100%;
-    } */
+  /*---------------------------------
+  header-hamberger-menu
+---------------------------------*/
+.header-sp {
+    display: flex;
+    z-index: 10000;
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-bottom: 1px solid gray;
+}
+/*　ハンバーガーボタン　*/
+.hamburger {
+  /* display : inline-block; */
+  position: fixed;
+  z-index : 3;
+  right : 13px;
+  top   : 12px;
+  width : 42px;
+  /* height: 42px; */
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  visibility: visible;
+  /* background-color: #fff; */
+}
+.hamburger span {
+  display : inline-block;
+  position: absolute;
+  /* width   : 30px;
+  height  : 2px ; */
+  left    : 6px;
+  /* background : #555;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition   : 0.3s ease-in-out;
+  transition        : 0.3s ease-in-out; */
+}
+.header-accont-btn-text {
+    display: inline-block;
+    font-size: 10px;
+}
+.hamburger2 {
+    visibility: hidden;
+    position: fixed;
+    z-index : 3;
+    right : 13px;
+    top   : 12px;
+    width : 42px;
+    height: 42px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.hamburger2.show-btn {
+    visibility: visible;
+}
+.hamburger.hide-btn {
+    visibility: hidden;
+}
+nav.globalMenuSp {
+  position: fixed;
+  z-index : 2;
+  top  : 0;
+  left : 0;
+  color: #000;
+  background: #fff;
+  text-align: left;
+  transform: translateY(-100%);
+  transition: all 0.6s;
+  width: 100%;
+}
+
+nav.globalMenuSp ul {
+  background: #fff;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+}
+
+nav.globalMenuSp ul li {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+nav.globalMenuSp ul li:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+nav.globalMenuSp ul li:hover{
+  background :#ddd;
+}
+
+nav.globalMenuSp ul li a {
+  display: block;
+  color: #000;
+  padding: 24px 17px;
+  text-decoration :none;
+  font-size: 14px;
+}
+
+/* このクラスを、jQueryで付与・削除する */
+nav.globalMenuSp.active {
+  transform: translateY(20%);
+}
+
+
+
 }
   /*---------------------------------
   menu-wrapper
@@ -580,75 +670,6 @@ product-wrapper
 .evaluation-num {
     text-decoration: underline;
 }
-/* .dli-plus {
-    display: inline-block;
-    vertical-align: middle;
-    color: #333;
-    line-height: 1;
-    width: 1em;
-    height: 0.1em;
-    background: currentColor;
-    border-radius: 0.1em;
-    position: relative;
-  }
-  
-  .dli-plus::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: inherit;
-    border-radius: inherit;
-    transform: rotate(90deg);
-  }
-.toggle_contents {
-	border: 2px solid #d9d9d9;
-}
-.toggle_title {
-	position: relative;
-	padding: 15px;
-	cursor: pointer;
-	font-size: 15px;
-	text-align: center;
-	line-height: 1.4;
-}
-.toggle_btn {
-	position: absolute;
-	top: 50%;
-	right: 20px;
-	transform: translateY(-50%);
-	background: #0052a4;
-	display: block;
-	width: 24px;
-	height: 24px;
-	text-indent: 100%;
-	white-space: nowrap;
-	overflow: hidden;
-	border-radius: 50%;
-}
-.toggle_btn:before, .toggle_btn:after {
-	display: block;
-	content: '';
-	background-color: black;
-	position: absolute;
-	width: 10px;
-	height: 2px;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-.toggle_btn:before {
-	width: 2px;
-	height: 10px;
-}
-.toggle_title.selected .toggle_btn:before {
-	content: normal;
-}
-.toggle_contents dd {
-	display: none;
-} */
 .panel {
     /* border: 1px solid #acac; */
     border-left: none;
@@ -719,12 +740,6 @@ product-wrapper
     background: black;
 
 }
-/* .price-panel-index input[type="checkbox"]:checked:hover { */
-
-    /*チェックしたときの箱の色を変える*/
-    /* background: gray; */
-
-/* } */
 
 /* チェックが入った時のレ点 */
 .price-panel-index input[type="checkbox"]:checked+label::after{
@@ -795,6 +810,20 @@ product-wrapper
     color: black;
     font-size: 13px;
 }
+.fa-plus {
+    visibility: visible;
+}
+.fa-minus {
+    visibility: hidden;
+}
+.fa-plus.hide-btn {
+    visibility: hidden;
+}
+.fa-minus.show-btn {
+    visibility: visible;
+}
+
+
 /*---------------------------------
 recommend-wrapper
 ---------------------------------*/
