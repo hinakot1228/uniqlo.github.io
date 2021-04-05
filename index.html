@@ -9,14 +9,14 @@
 	<title>期間限定商品｜MEN（メンズ）</title>
 	<link rel="stylesheet" href="./css/style.css">
 	<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-	<!-- <link rel="stylesheet" href="./slick/slick-theme.css" type="text/css"> -->
+	<link rel="stylesheet" href="./slick/slick-theme.css" type="text/css">
 	　　
-	<!-- <link rel="stylesheet" href="./slick/slick.css" type="text/css"> -->
+	<link rel="stylesheet" href="./slick/slick.css" type="text/css">
 	<link rel="stylesheet" href="./style.css" type="text/css">
 	　　
-	<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-3.1.0.min.js"></script> -->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
 	　　
-	<!-- <script src="./slick/slick.js" type="text/javascript"></script> -->
+	<script src="./slick/slick.js" type="text/javascript"></script>
 	　　
 	<script src="./js/style.js" type="text/javascript"></script>
 	<!-- CSS only -->
@@ -28,7 +28,7 @@
 <body>
 	<header class="header pc">
 		<section class="header-wrapper">
-			<div class="inner">
+			<div class="header-inner">
 				<div class="header-container">
 					<div class="header-left">
 						<div class="header-logo">
@@ -92,6 +92,15 @@
 		</ul>
 	</nav>
 
+	<nav class="menu-nav sp">
+		<ul class="menu-nav-btns">
+			<li class="menu-nav-btn-list women"><a href="#" class="menu-nav-btn women">WOMEN</a></li>
+			<li class="menu-nav-btn-list men"><a href="#" class="menu-nav-btn men">MEN</a></li>
+			<li class="menu-nav-btn-list kids"><a href="#" class="menu-nav-btn kids">KIDS</a></li>
+			<li class="menu-nav-btn-list baby"><a href="#" class="menu-nav-btn baby">BABY</a></li>
+		</ul>
+	</nav>
+
 	<section class="top-wrapper">
 		<div class="inner">
 			<div class="category-btns">
@@ -110,7 +119,7 @@
 		</div>
 	</section>
 
-	<section class="kinds-tab-wrapper">
+	<section class="kinds-tab-wrapper pc">
 		<div class="inner">
 			<div class="kinds-tab">
 				<a href="" class="kinds-tab-btn"><span class="kinds-tab-btn-underline">WOMEN</span></a>
@@ -121,8 +130,8 @@
 		</div>
 	</section>
 
-	<section class="menu-wrapper">
-		<div class="inner">
+	<section class="menu-wrapper pc">
+		<div class="menu-inner">
 			<div class="menu-container">
 				<div class="result">
 					<p class="result-heading">結果</p>
@@ -131,7 +140,7 @@
 				<div class="filter">
 					<p class="filter-heading">適用済みフィルタ―</p>
 					<div class="filter-box">
-						<p class="filter-name">Men</p>
+						<span class="filter-name">Men</span>
 					</div>
 				</div>
 				<div class="sorting">
@@ -153,6 +162,64 @@
 			</div>
 		</div>
 	</section>
+
+	<section class="menu-wrapper-sp sp">
+		<div class="menu-items">
+			<div class="menu-item-num"><span>33件</span></div>
+			<div class="menu-item-display-btn">
+				<a href="#"  class="menu-item-others menu-item-display display">
+					<i class="far fa-square"></i>
+					<span>表示</span>
+				</a>
+				<div class="display-menu">
+					<div class="display-menu-btn display-menu-big">
+						<i class="fas fa-th-large"></i>
+						<span>大きく</span>
+					</div>
+					<div class="display-menu-btn display-menu-list">
+						<i class="fas fa-th-list"></i>
+						<span>リスト</span>
+					</div>
+				</div>
+			</div>
+			<div class="menu-item-sorting-btn">
+				<a href="#" class="menu-item-others menu-item-sorting sorting">
+					<i class="fas fa-sort-amount-down"></i>
+					<span>並び替え</span>
+				</a>
+			</div>
+			<div>
+				<a href="#" class="menu-item-others menu-item-narrow">
+					<i class="fas fa-filter"></i>
+					<span>絞り込む</span>
+				</a>
+			</div>
+		</div>
+		<div class="sorting-menu">
+			<div class="sorting-menu-list">
+				<input type="radio" name="" id=""><label for="">おすすめ順</label>
+			</div>
+			<div class="sorting-menu-list">
+				<input type="radio" name="" id=""><label for="">新作順</label>
+			</div>
+			<div class="sorting-menu-list">
+				<input type="radio" name="" id=""><label for="">価格：安い順</label>
+			</div>
+			<div class="sorting-menu-list">
+				<input type="radio" name="" id=""><label for="">価格：高い順</label>
+			</div>
+			<div class="sorting-menu-list">
+				<input type="radio" name="" id=""><label for="">評価順</label>
+			</div>
+			
+	
+			<button>並び替え</button>
+		</div>
+	</section>
+
+	<div class="narrow-down-menu">
+
+	</div>
 
 	<section class="product-wrapper">
 		<div class="inner">
@@ -375,7 +442,7 @@
 		</div>
 	</section>
 
-	<section class="recommend-wrapper">
+	<section class="recommend-wrapper pc">
 		<div class="inner">
 			<div class='container'>
 				<h1 class="recommend-heading">おすすめ商品</h1>
@@ -551,7 +618,7 @@
 		</div>
 	</section>
 
-	<footer>
+	<footer class="footer-pc pc">
 		<section class="footer">
 			<div class="inner">
 				<div class="footer-btns">
@@ -588,6 +655,112 @@
 			</div>
 		</section>
 	</footer>
+
+	<div class="category-wrapper-sp sp">
+		<div class="category-btns-sp">
+			<a href="#" class="category-btns-sp"><span class="underline">ユニクロTOP</span></a>/
+			<a href="#" class="category-btns-sp underline"><span class="underline">MEN</span></a>/
+			<a href="#" class="category-btns-sp">期間限定価格</a>
+		</div>
+	</div>
+
+	<footer class="footer-sp sp">
+		<section class="footer">
+			<div class="inner">
+				<div class="footer-btns">
+					<div class="footer-info-btns">
+						<a href="" class="footer-info-btn border-right">会員情報</a>
+						<a href="" class="footer-info-btn border-right">返金・交換について</a>
+						<a href="" class="footer-info-btn border-right">お問い合わせ</a>
+						<a href="" class="footer-info-btn border-right">利用規約</a>
+						<a href="" class="footer-info-btn border-right">プライバシーポリシー</a>
+						<a href="" class="footer-info-btn border-right">推薦環境</a>
+						<a href="" class="footer-info-btn">企業情報</a>
+					</div>
+					<div class="sns-btns">
+						<div class="sns-btns-text">
+							<span>公式SNSアカウント</span>
+						</div>
+						<ul>
+							<li>
+								<a href="" class="sns-btn"><i class="fab fa-facebook"></i></a>
+								<a href="" class="sns-btn"><i class="fab fa-instagram"></i></a>
+								<a href="" class="sns-btn"><i class="fab fa-twitter-square"></i></a>
+								<a href="" class="sns-btn"><i class="fab fa-youtube"></i></a>
+							</li>
+						</ul>
+					</div>
+					<div class="footer-onlinestores-btns">
+						<!-- <h6>グループブランド　オンラインストア</h6> -->
+						<button class="btn side-bar-btn footer-btn">
+							グループブランド　オンラインストア
+							<i class="fas fa-chevron-down"></i>
+							<i class="fas fa-chevron-up"></i>
+						</button>
+
+						<div class="panel">
+							<ul>
+								<li class="category-lists">
+									<a href="" class="category-list">ジーユー</a>
+									<a href="" class="category-list">セオリー</a>
+									<a href="" class="category-list">プラステ</a>
+									<a href="" class="category-list">コートワー・デ・コトニエ</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="copylight">
+					<small>Copyright &copy; UNIQLO Co., Ltd. All rights reserved.</small>
+				</div>
+				
+			</div>
+		</section>
+	</footer>
+
+	<div class="page-top sp">
+		<a id="page-top">
+			<i id="page-top-icon" class="fas fa-chevron-up"></i>
+			<span>TOP</span>
+		</a>
+	</div>
+
+	<div class="bottom-nav sp">
+		<nav>
+			<ul class="bottom-nav-btns">
+				<li>
+					<a href="#" class="bottom-nav-btn">
+						<i class="fas fa-bars"></i>
+						<span>メニュー</span>
+					</a>
+				</li>
+				<li>
+					<a href="#" class="bottom-nav-btn">
+						<i class="fas fa-search"></i>
+						<span>検索</span>
+					</a>
+				</li>
+				<li>
+					<a href="#" class="bottom-nav-btn">
+						<i class="fas fa-memory"></i>
+						<span>店舗</span>
+					</a>
+				</li>
+				<li>
+					<a href="#" class="bottom-nav-btn">
+						<i class="far fa-heart"></i>
+						<span>お気に入り</span>
+					</a>
+				</li>
+				<li>
+					<a href="#" class="bottom-nav-btn">
+						<i class="fas fa-shopping-cart"></i>
+						<span>カート</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
 
 
 
