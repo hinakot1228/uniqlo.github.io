@@ -79,6 +79,10 @@ $(function() {
 /*---------------------------------
   PC画面のサイドバー「＋」「―」のボタン切り替え
 ---------------------------------*/
+/*---------------------------------
+  モバイル画面のフッター「↑」「↓」のボタン切り替え
+---------------------------------*/
+
 $(function() {
   $('.side-bar-btn').click(function() {
     var category = $(this).hasClass('category-btn');
@@ -86,6 +90,7 @@ $(function() {
     var size = $(this).hasClass('size-btn');
     var color = $(this).hasClass('color-btn');
     var others = $(this).hasClass('others-btn');
+    var footer = $(this).hasClass('footer-btn');
 
     if(category) {
       $(".category-btn").find('.fa-plus').toggleClass('hide-btn');
@@ -107,5 +112,57 @@ $(function() {
       $(".others-btn").find('.fa-plus').toggleClass('hide-btn');
       $(".others-btn").find('.fa-minus').toggleClass('show-btn');
     }
+    else if(footer) {
+      $(".footer-btn").find('.fa-chevron-down').toggleClass('hide-btn');
+      $(".footer-btn").find('.fa-chevron-up').toggleClass('show-btn');
+    }
   });
 });
+
+/*---------------------------------
+  モバイル画面のトップスクロール
+---------------------------------*/
+$(function() {
+  var topBtn = $('#page-top');
+  // 元々は見えないようにしておく
+  topBtn.hide();
+
+  // スクロールしたらボタンを表示
+  $(window).scroll(function () {
+      if ($(this).scrollTop() > 300) {
+          topBtn.fadeIn();
+      } else {
+          topBtn.fadeOut();
+      }
+  });
+
+  // スクロールでトップへ戻る
+  topBtn.click(function () {
+      $('body,html').animate({
+          scrollTop: 0
+      }, 300);
+      return false;
+  });
+});
+
+/*---------------------------------
+  モバイル画面のメニュー
+---------------------------------*/
+$(function() {
+  $('.menu-item-display').click(function() {
+    $(this).nextAll().toggleClass('show');
+  });
+});
+$(function() {
+  $('.menu-item-sorting-btn').click(function() {
+    $('.sorting-menu').toggleClass('show');
+  });
+});
+
+
+
+// $(function() {
+//   $('.menu-item-display').click(function() {
+//     $(this).nextAll().show();
+//   });
+// });
