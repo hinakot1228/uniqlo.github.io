@@ -14,7 +14,7 @@ ul {
     color: black;
 }
 .inner {
-    width: 90%;
+    width: 88.5%;
     margin: 0 auto;
 }
 .underline {
@@ -44,13 +44,17 @@ ul {
     /* height: 50px; */
     /* width: 100vw; */
     border-bottom: 1px solid #dadada;
-    padding: 20px 0;
+    padding: 14px 0;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 100000;
   
+}
+.header-inner {
+    margin-left: 76px;
+    margin-right: 69px;
 }
 .header-container {
     display: flex;
@@ -74,7 +78,7 @@ ul {
     font-family:  UniqloProBold,system-ui,-apple-system,sans-serif;
     font-weight: bold;
     /* margin-right: 20px; */
-    padding: 16px 12px;
+    padding: 16px 7px;
     font-weight: bold;
     text-decoration: none;
 }
@@ -85,7 +89,7 @@ ul {
     border-bottom: 1px solid black;
 }
 .header-search {
-    margin-right: 30px;
+    margin-right: 15px;
 }
 /* .search-box {
     display: flex;
@@ -355,11 +359,53 @@ nav.globalMenuSp.active {
 
 
 }
+
+  /*---------------------------------
+  menu-nav sp
+---------------------------------*/
+.menu-nav {
+    margin-top: 50px;
+}
+.menu-nav-btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    height: 60px;
+    margin: 0px;
+}
+.menu-nav-btn{
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    margin: 10px;
+}
+.menu-nav-btns li {
+    height: 60px;
+    border-right: 1px solid gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu-nav-btn.men {
+    border-bottom: 1px solid blue;
+}
+.menu-nav-btn-list.women, .menu-nav-btn-list.kids, .menu-nav-btn-list.baby {
+    background-color: rgb(185, 175, 175);
+}
+/* .menu-nav-btn.women, .menu-nav-btn.kids, .menu-nav-btn.baby { */
+    /* background-color: gray; */
+    /* border-bottom: 1px solid gray; */
+/* } */
   /*---------------------------------
   menu-wrapper
 ---------------------------------*/
+.menu-inner {
+    margin-left: 76px;
+    margin-right: 39px;
+}
 .menu-wrapper {
-    margin: 30px 0;
+    margin: 51px 0 34px 0;
     border-bottom: 1px #ccc solid;
     padding-bottom: 16px;
     display: block;
@@ -374,14 +420,20 @@ nav.globalMenuSp.active {
 .menu-container {
       display: flex;
       justify-content: space-between;
+      margin-left: 12px;
   }
   .result {
-      width: 300px;
+      width: 237px;
   }
-  .result-heading, .filter-heading {
+  .result-heading {
       font-size: 13px;
       font-weight: bold;
-      margin-bottom: 18px;
+      margin-bottom: 13px;
+  }
+  .filter-heading {
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 8px;
   }
   .result-number {
       font-size: 15px;
@@ -398,11 +450,11 @@ nav.globalMenuSp.active {
     align-items: center;
   }
   .filter-name {
-      font-size: 16px;
+      font-size: .8125rem;
       color: gray;
   }
   .sorting {
-      width: 200px;
+      width: 184px;
   }
   .sorting-heading {
       font-size: 15px;
@@ -456,12 +508,86 @@ nav.globalMenuSp.active {
     /* These hacks make the select behind the arrow clickable in some browsers */
     pointer-events:none;
   }
+  @media only screen and (max-width: 480px) {
+    .menu-wrapper-sp {
+        position: relative;
+    }
+    .display-menu, .sorting-menu {
+        display: none;
+        background-color: #fff;
+    }
+    .display-menu.show, .sorting-menu.show {
+        display: inline-block;
+        z-index: 10000;
+    }
+    .sorting-menu {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+    }
+    .sorting-menu button {
+        width: 90%;
+        background-color: black;
+        color: white;
+    }
+    .menu-item-display-btn, .menu-item-sorting-btn {
+        position: relative;
+    }
+    .display-menu-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 70px;
+        width: 68px;
+        border: 1px solid gray;
+    }
+      .menu-items {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          height: 70px;
+          border-top: 1px solid gray;
+          border-bottom: 1px solid gray;
+          margin: 0;
+          padding: 0;
+      }
+      .menu-item-num {
+          height: 100%;
+          width: 50%;
+          border-right: 1px solid gray;
+          display: flex;
+          align-items: center;
+          padding: 0 4vw;
+      }
+      .menu-item-others {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          color: black;
+          text-decoration: none;
+          width: 66px;
+          height: 100%;
+      }
+      .menu-item-others span {
+          font-size: 11px;
+      }
+      .menu-item-others.display, .menu-item-others.sorting {
+          border-right: 1px solid gray;
+      }
+      .menu-items div{
+          height: 100%;
+      }
+
+  }
  
   /*---------------------------------
   top-wrapper
 ---------------------------------*/
 .top-wrapper {
-    margin-top: 88px;
+    margin-top: 43px;
     padding-top: 50px;
 }
 .category-btns {
@@ -473,15 +599,8 @@ nav.globalMenuSp.active {
     font-size: 13px;
     height: 44px;
     width: 44px;
-    padding-right: 5px;
+    padding-right: 10px;
 }
-
-/* .category-btn_1, .category-btn_2 {
-    border-bottom: 1px solid black;
-} */
-/* .top-heading {
-    margin-top: 50px;
-} */
 .heading {
     font-size: 36px;
     font-weight: bold;
@@ -490,12 +609,27 @@ nav.globalMenuSp.active {
     display: flex;
     flex-direction: column;
     text-align: right;
+    margin-top: 28px;
 }
 .feature-btn {
     color: black;
     font-size: 13px;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
 }
+@media only screen and (max-width: 480px) {
+    .top-wrapper {
+        margin-top: 30px;
+        padding-top: 0;
+        border-bottom: 1px solid gray;
+    }
+    .category-btns {
+        display: none;
+    }
+    .heading {
+        font-size: 20px;
+    }
+}
+
   /*---------------------------------
   kinds-tab
 ---------------------------------*/
@@ -505,16 +639,19 @@ nav.globalMenuSp.active {
     /* padding: 30px 20px; */
     height: 60px;
     border-bottom: 1px solid #dadada;
-    margin-bottom: 24px;
+    margin: -5px 0;
 }
 .kinds-tab-btn {
     /* margin-right: 20px; */
-    width: 85px;
+    /* width: 85px; */
+    padding: 0 .75rem;
     text-align:center;
     color: black;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 16px;
     height: 60px;
+    display: flex;
+    align-items: center;
 }
 .kinds-tab-btn-underline {
     padding-bottom: 4px;
@@ -522,6 +659,9 @@ nav.globalMenuSp.active {
 
 .kinds-tab-btn-underline:hover {
     border-bottom: 2px solid #1b1b1b;
+}
+.side-bar-btn {
+    text-align: left;
 }
 /* .side-bar-btn:active {
     font-weight: bold;
@@ -592,7 +732,7 @@ product-wrapper
 .product-card {
     padding: 12px;
     border: 1px solid white; 
-    width: 200px;
+    /* width: 200px; */
 }
 .product-card:hover {
     /* display: block; */
@@ -600,7 +740,10 @@ product-wrapper
 }
 .product-img {
     width: 201px;
-    padding-bottom: 16px;
+    padding-bottom: 9px;
+}
+.product-colors {
+    padding-bottom: 8px;
 }
 .color {
     width: 13px;
@@ -611,6 +754,7 @@ product-wrapper
     font-size: 11px;
     color: gray;
     padding-top: 8px 0 8px 0;
+    height: 20px;
 }
 .product-name, .recommend-name {
     margin: 5px 0;
@@ -627,6 +771,7 @@ product-wrapper
 .product-info, .recommend-info {
     color: red;
     font-size: 13px;
+    margin-bottom: 10px;
 }
 .star5_rating{
     position: relative;
@@ -823,6 +968,36 @@ product-wrapper
     visibility: visible;
 }
 
+@media only screen and (max-width: 480px) {
+    .inner {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .side-bar {
+        display: none;
+    }
+    .product-card {
+        width: 50%;
+        padding: 0px;
+        border: 1px solid gray;
+    }
+    .product-img {
+        width: 100%;
+    }
+    .star5_rating:after {
+        color: orange;
+    }
+    .evaluation-num {
+        color: black;
+    text-decoration: none;
+    }
+    .show-more {
+        padding: 20px;
+        border-top: 1px solid gray;
+        border-bottom: 1px solid gray;
+    }
+    
+}
 
 /*---------------------------------
 recommend-wrapper
@@ -864,7 +1039,17 @@ recommend-wrapper
 .recommend-info {
     color: red;
 }
-
+/*---------------------------------
+category-wrapper
+---------------------------------*/
+@media only screen and (max-width: 480px) {
+    .category-wrapper-sp {
+        padding: 10px;
+    }
+    .category-btns-sp {
+        color: black;
+    }
+}
 /*---------------------------------
 footer
 ---------------------------------*/
@@ -914,6 +1099,95 @@ small {
     margin: 0 16px 16px 0;
 }
 
+@media only screen and (max-width: 480px) {
+    .footer {
+        padding: 50px 0;
+    }
+    .footer-info-btns {
+        display: flex;
+        flex-direction: column;
+    }
+    .footer-btns {
+        height: auto;
+    }
+    .border-right {
+        border-right: 0px;
+    }
+    .footer-info-btn {
+        color: black;
+        border-bottom: 1px solid gray;
+        padding: 10px;
+    }
+    .sns-btns {
+        display: flex;
+        flex-direction: column;
+    }
+    .fa-chevron-up {
+        visibility: hidden;
+    }
+    .fa-chevron-down {
+        visibility: visible;
+    }
+    .fa-chevron-up.show-btn {
+        visibility: visible;
+    }
+    .fa-chevron-down.hide-btn {
+        visibility: hidden;
+    }
+    .footer-onlinestores-btns {
+        display: flex;
+        flex-direction: column;
+    }
+    .copylight {
+        text-align: center;
+    }
+    /*---------------------------------
+    page top
+    ---------------------------------*/
+    .page-top {
+        position: fixed;
+        bottom: 50px;
+        right: 0px;
+    }
+
+    #page-top {
+        display: flex;
+        flex-direction: column;
+        font-size: 15px;
+        text-align: center;
+        color: black;
+        background-color: #fff;
+        padding: 10px;
+    }
+
+    #page-top:hover {
+        text-decoration: none;
+    } 
+    #page-top-icon {
+        visibility: visible;
+    }
+    .bottom-nav {
+        background-color: red;
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+    }
+    .bottom-nav-btns {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+        margin: 0;
+    }
+    .bottom-nav-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+    }
+    
+}
 
 
 
@@ -1005,3 +1279,7 @@ small {
 .toggle_contents dd {
 	display: none;
 }
+
+
+
+
