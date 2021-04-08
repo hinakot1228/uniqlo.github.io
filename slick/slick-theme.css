@@ -16,6 +16,16 @@
     src: url('./fonts/slick.eot?#iefix') format('embedded-opentype'), url('./fonts/slick.woff') format('woff'), url('./fonts/slick.ttf') format('truetype'), url('./fonts/slick.svg#slick') format('svg');
 }
 /* Arrows */
+.slick-prev {
+    left: 35px;
+    z-index: 100;
+}
+
+.slick-next {
+    right: 35px;
+    z-index: 100;
+}
+
 .slick-prev,
 .slick-next
 {
@@ -41,6 +51,15 @@
     outline: none;
     background: transparent;
 }
+.slick-prev {
+    left:0!important;
+}
+.slick-next {
+    right: 34px !important;
+}
+.slick-arrow{
+    z-index:2!important;
+  }
 .slick-prev:hover,
 .slick-prev:focus,
 .slick-next:hover,
@@ -88,7 +107,14 @@
 }
 .slick-prev:before
 {
-    content: '←';
+    position: relative;
+    font-family: "Font Awesome 5 Free";
+    content: "\f053";
+    background: white;
+    padding: 10px;
+    opacity: 1;
+    font-weight: 900;
+    color: #bbbbbb;
 }
 [dir='rtl'] .slick-prev:before
 {
@@ -106,7 +132,14 @@
 }
 .slick-next:before
 {
-    content: '→';
+    position: relative;
+    font-family: "Font Awesome 5 Free";
+    content: "\f054";
+    background: white;
+    padding: 10px;
+    opacity: 1;
+    font-weight: 900;
+    color: #bbbbbb;
 }
 [dir='rtl'] .slick-next:before
 {
@@ -127,7 +160,7 @@
     display: block;
 
     width: 100%;
-    padding: 0;
+    /* padding-top: 12px; */
     margin: 0;
 
     list-style: none;
@@ -140,8 +173,8 @@
 
     display: inline-block;
 
-    width: 20px;
-    height: 20px;
+    width: 3px;
+    height: 3px;
     margin: 0 5px;
     padding: 0;
 
@@ -149,8 +182,8 @@
 }
 .slick-dots li button
 {
-    font-size: 0;
-    line-height: 0;
+    font-size: 100% !important;
+    line-height: 100% !important;
 
     display: block;
 
@@ -174,6 +207,7 @@
 .slick-dots li button:focus:before
 {
     opacity: 1;
+    color: black; /* hover時の色を変更 */
 }
 .slick-dots li button:before
 {
@@ -188,7 +222,9 @@
     width: 20px;
     height: 20px;
 
-    content: '•';
+    /* 元のcontentプロパティの値だとfont-sizeを変更した際に位置がずれてしまうので値を変更 */
+    /* content: '•'; */
+    content: '●';
     text-align: center;
 
     opacity: .25;
@@ -200,5 +236,6 @@
 .slick-dots li.slick-active button:before
 {
     opacity: .75;
-    color: black;
+    color: black; /* active時の色を変更 */
 }
+
