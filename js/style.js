@@ -17,27 +17,67 @@ $(function() {
     if(category) {
       $(".category-btn").find('.fa-plus').toggleClass('hide-btn');
       $(".category-btn").find('.fa-minus').toggleClass('show-btn');
+      $(".category-btn").toggleClass('click');
     }
     else if(price) {
       $(".price-btn").find('.fa-plus').toggleClass('hide-btn');
       $(".price-btn").find('.fa-minus').toggleClass('show-btn');
+      $(".price-btn").toggleClass('click');     
     }
     else if(size) {
       $(".size-btn").find('.fa-plus').toggleClass('hide-btn');
       $(".size-btn").find('.fa-minus').toggleClass('show-btn');
+      $(".size-btn").toggleClass('click');
     }
     else if(color) {
       $(".color-btn").find('.fa-plus').toggleClass('hide-btn');
       $(".color-btn").find('.fa-minus').toggleClass('show-btn');
+      $(".color-btn").toggleClass('click');
     }
     else if(others) {
       $(".others-btn").find('.fa-plus').toggleClass('hide-btn');
       $(".others-btn").find('.fa-minus').toggleClass('show-btn');
+      $(".others-btn").toggleClass('click');
     }
     else if(footer) {
       $(".footer-btn").find('.fa-chevron-down').toggleClass('hide-btn');
       $(".footer-btn").find('.fa-chevron-up').toggleClass('show-btn');
     }
+  });
+  // , function() {
+  //   $(".category-btn, .price-btn, .size-btn ,.color-btn, .others-btn").css('color', '#ababab');
+  // });
+});
+/*---------------------------------
+  アコーディオンメニューのhover時
+---------------------------------*/
+$(function(){
+  $('.side-bar-btn').hover(function() {
+    var category = $(this).hasClass('category-btn');
+    var price = $(this).hasClass('price-btn');
+    var size = $(this).hasClass('size-btn');
+    var color = $(this).hasClass('color-btn');
+    var others = $(this).hasClass('others-btn');
+    var footer = $(this).hasClass('footer-btn');
+
+    if(category){
+      $(".category-btn").children('.fas').css('color', 'gray');
+    }
+    if(price){
+      $(".price-btn").children('.fas').css('color', 'gray');
+    }
+    if(size){
+      $(".size-btn").children('.fas').css('color', 'gray');
+    }
+    if(color){
+      $(".color-btn").children('.fas').css('color', 'gray');
+    }
+    if(others){
+      $(".others-btn").children('.fas').css('color', 'gray');
+    }
+  }, function() {
+      $(".category-btn, .price-btn, .size-btn ,.color-btn, .others-btn").children('.fas').css('color', '');
+
   });
 });
 
@@ -198,4 +238,26 @@ $(function() {
   $('.menu-item-sorting-btn').click(function() {
     $('.sorting-menu').toggleClass('show');
   });
+});
+
+/*---------------------------------
+  headroom.js
+---------------------------------*/
+var pos = 300;
+
+$(window).on('scroll', function(){
+  if($(this).scrollTop() > 300 ){
+    if($(this).scrollTop() < pos ){
+      //上スクロール時に表示
+      $('.menu-wrapper2').addClass('_show');
+    }else{
+      //下スクロール時に表示
+      $('.menu-wrapper2').removeClass('_show');
+    }
+  } else {
+    $('.menu-wrapper2').addClass('_show');
+  }
+ 
+  //スクロールが停止した位置を保持
+  pos = $(this).scrollTop();
 });
