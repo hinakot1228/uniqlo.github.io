@@ -439,10 +439,8 @@ nav.globalMenuSp.active {
     /* transition: 0.3s ease-in-out; */
 }
 .menu-wrapper2 {
-    /* margin: 51px 0 34px 0; */
-    /* border-bottom: 1px #ccc solid; */
     padding: 24px 0 15px;
-    -webkit-transform: translateY(0);
+    /* -webkit-transform: translateY(0); */
     transform: translateY(0);
     position: fixed;
     top: -40px;
@@ -450,16 +448,26 @@ nav.globalMenuSp.active {
     background-color: #fff;
     width: 100%;
     transition: 0.3s ease-in-out;
-    border-bottom: 1px solid #ccc;
-    /* visibility: hidden; */
-    display: none;
+    border-bottom: 2px solid #ebebeb;
+}
+.menu2-inner {
+    margin-left: 76px;
+    margin-right: 69px;
 }
 .menu-wrapper2._show {
     visibility: visible;
+    /* display: block; */
     position: fixed;
-    top: 74px;
+    top: 73px;
     left: 0;
+    border-bottom: 2px solid #ebebeb;
    }
+.menu-wrapper2._none {
+    transition: none !important;
+    transform: none !important;
+    visibility: hidden;
+    /* display: none; */
+}
 
 .hideClass {
     transform: translateY(-74px);
@@ -682,7 +690,7 @@ nav.globalMenuSp.active {
 ---------------------------------*/
 .top-wrapper {
     margin-top: 43px;
-    padding-top: 50px;
+    padding-top: 74px;
 }
 .category-btns {
     padding-bottom: 32px;
