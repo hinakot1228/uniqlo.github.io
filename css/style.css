@@ -6,12 +6,16 @@
 
 a {
     text-decoration: none;
+    outline: none !important;
 }
 a:hover {
     color: black !important;
 }
 ul {
     list-style: none;
+}
+button {
+    outline: 0 !important;
 }
 .fab {
     color: black;
