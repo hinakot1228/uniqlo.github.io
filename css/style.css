@@ -16,12 +16,17 @@ ul {
 .fab {
     color: black;
 }
-.inner {
+/* .inner {
     width: 88.5%;
     margin: 0 auto;
-}
+} */
 .underline {
     text-decoration: underline;
+}
+.wrapper {
+    width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
 }
 /*---------------------------------
   レスポンシブ対応
@@ -56,8 +61,8 @@ ul {
   
 }
 .header-inner {
-    margin-left: 76px;
-    margin-right: 69px;
+    width: 87%;
+    margin: 0 auto;
 }
 .header-container {
     display: flex;
@@ -420,10 +425,10 @@ nav.globalMenuSp.active {
   /*---------------------------------
   menu-wrapper
 ---------------------------------*/
-.menu-inner {
+/* .menu-inner {
     margin-left: 76px;
     margin-right: 39px;
-}
+} */
 .menu-wrapper {
     margin: 51px 0 34px 0;
     /* border-bottom: 1px #ccc solid; */
@@ -450,10 +455,10 @@ nav.globalMenuSp.active {
     transition: 0.3s ease-in-out;
     border-bottom: 2px solid #ebebeb;
 }
-.menu2-inner {
+/* .menu2-inner {
     margin-left: 76px;
     margin-right: 69px;
-}
+} */
 .menu-wrapper2._show {
     visibility: visible;
     /* display: block; */
@@ -1259,8 +1264,11 @@ category-wrapper
 /*---------------------------------
 footer
 ---------------------------------*/
-.footer {
+footer {
     background-color: #F4F4F4;
+}
+.footer {
+    
     padding: 27px 0;
 }
 .footer-inner {
@@ -1532,3 +1540,7 @@ small {
 .toggle_contents dd {
 	display: none;
 }
+
+
+
+
