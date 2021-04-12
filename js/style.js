@@ -241,23 +241,24 @@ $(function() {
 });
 
 /*---------------------------------
-  headroom.js
+  上にスクロールで表示、下スクロールで非表示
 ---------------------------------*/
-var pos = 300;
+var pos = 0;
 
 $(window).on('scroll', function(){
   if($(this).scrollTop() > 300 ){
-    if($(this).scrollTop() < pos ){
+    $('.menu-wrapper2').removeClass('_none');
+    if($(this).scrollTop() > pos ){
       //上スクロール時に表示
-      $('.menu-wrapper2').addClass('_show');
+      $('.menu-wrapper2').removeClass('_show');
     }else{
       //下スクロール時に表示
-      $('.menu-wrapper2').removeClass('_show');
+      $('.menu-wrapper2').addClass('_show');
     }
-  } else {
-    $('.menu-wrapper2').addClass('_show');
+  } 
+  else {
+    $('.menu-wrapper2').removeClass('_show').addClass('_none');
   }
- 
   //スクロールが停止した位置を保持
   pos = $(this).scrollTop();
 });
