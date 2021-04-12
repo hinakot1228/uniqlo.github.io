@@ -1,1546 +1,264 @@
-* {
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
-}
-
-a {
-    text-decoration: none;
-}
-a:hover {
-    color: black !important;
-}
-ul {
-    list-style: none;
-}
-.fab {
-    color: black;
-}
-/* .inner {
-    width: 88.5%;
-    margin: 0 auto;
-} */
-.underline {
-    text-decoration: underline;
-}
-.wrapper {
-    width: 1200px;
-    margin-right: auto;
-    margin-left: auto;
-}
 /*---------------------------------
-  レスポンシブ対応
+  PC画面のサイドバー「＋」「―」のボタン切り替え
 ---------------------------------*/
-.pc { display: block !important; }
-.sp { 
-    display: none !important; }
-@media only screen and (max-width: 480px) {
-    .pc { display: none !important; }
-    .sp { 
-        display: block !important; 
-        
-    }
-}
-
 /*---------------------------------
-  header
+  モバイル画面のフッター「↑」「↓」のボタン切り替え
 ---------------------------------*/
-.header-wrapper {
-    /* display: flex; */
-    /* justify-content: space-between; */
-    background-color: #FFFFFF;
-    /* height: 50px; */
-    /* width: 100vw; */
-    border-bottom: 1px solid #dadada;
-    padding: 14px 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100000;
-  
-}
-.header-inner {
-    width: 87%;
-    margin: 0 auto;
-}
-.header-container {
-    display: flex;
-    justify-content: space-between;
-}
-.header-left {
-    display: flex;
-    align-items: center;
-}
-.logo-img {
-    margin-right: 20px;
-    height: 40px;
-}
-.header-right {
-    display: flex;
-    align-items: center;
-}
-.header-kinds-btn {
-    color: black;
-    font-size: 16px;
-    font-family:  UniqloProBold,system-ui,-apple-system,sans-serif;
-    font-weight: bold;
-    /* margin-right: 20px; */
-    padding: 16px 7px;
-    font-weight: bold;
-    text-decoration: none;
-}
-.header-kids-btn-underline {
-    padding-bottom: 4px;
-}
-.header-kids-btn-underline:hover {
-    border-bottom: 1px solid black;
-}
-.header-search {
-    margin-right: 15px;
-}
-/* .search-box {
-    display: flex;
-} */
-/* .search-input {
-    padding: 10px;
-    border: none;
-} */
-/* .header-search {
-    width: 100px;
-    border: 1px solid black;
-} */
-.header-icons {
-    display: block;
-    width: 200px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-.header-icon {
-    color: black;
-    /* margin-right: 20px; */
-    text-decoration: none;
-    /* width: 1.5rem; */
-}
 
-/* .search-input{
-  box-sizing: border-box;
-  border: 1px black solid;
-}
-.search-input input[type="text"]{
-  /* background: #ccddf5; */
-  /* border: none;
-  height: 35px;
-  width: 250px;
-} */
-/* .search-input input[type="text"]:focus {
-  outline: 0;
-}
-.search-input input[type="submit"]{
-  cursor: pointer;
-  font-family: FontAwesome;
-  border: none;
-  /* background: #3879D9; */
-  /* color: #ffffff; */
-  /* outline : none;
-  width: 3.0em;
-  height: 37px; */
-/* } */
+$(function() {
+  $('.side-bar-btn').click(function() {
+    var category = $(this).hasClass('category-btn');
+    var price = $(this).hasClass('price-btn');
+    var size = $(this).hasClass('size-btn');
+    var color = $(this).hasClass('color-btn');
+    var others = $(this).hasClass('others-btn');
+    var footer = $(this).hasClass('footer-btn');
 
-.search_container{
-    position: relative;
-    box-sizing: border-box;
-    border: 1px solid #ABABAB;
-    display: block;
-    padding: 3px 10px;
-    /* border-radius: 3px; */
-    height: 44px;
-    width: 300px;
-    overflow: hidden;
-    display: flex;
-    /* justify-content: center; */
-    align-items: center;
-  }
-  .search_container input[type="text"]{
-    border: none;
-    /* padding: 41px; */
-    height: 2.0em;
-    font-size: .9375rem;
-  }
-  .search_container input[type="text"]:focus {
-    outline: 0;
-  }
-  .search_container button[type="submit"]{
-    cursor: pointer;
-    /* font-family: FontAwesome; */
-    border: none;
-    background: #fff;
-    color: black;
-    position: absolute;
-    width: 44px;
-    height: 3.0em;
-    right:0px;
-    top: -5px;
-    outline : none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-left: 1px solid gray;
-  }
-  .search-btn {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-  }
-  .search-btn-box {
-      /* border-left: 1px solid gray; */
-      width: 44px;
-  }
-  @media only screen and (max-width: 480px) {
-    /* header {
-        overflow: hidden;
-        box-sizing: border-box;
-        width: 100%;
-        max-width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    if(category) {
+      $(".category-btn").find('.fa-plus').toggleClass('hide-btn');
+      $(".category-btn").find('.fa-minus').toggleClass('show-btn');
+      $(".category-btn").toggleClass('click');
     }
-    .header-wrapper {
-        padding: 15px 16px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 100%;
-        overflow:hidden;
-        box-sizing: border-box;
-        width: 100vw;
-        height: 71px;
-        border-bottom: 2px solid #dadada;
-
+    else if(price) {
+      $(".price-btn").find('.fa-plus').toggleClass('hide-btn');
+      $(".price-btn").find('.fa-minus').toggleClass('show-btn');
+      $(".price-btn").toggleClass('click');     
     }
-    .header-logo {
-        height: 40px;
+    else if(size) {
+      $(".size-btn").find('.fa-plus').toggleClass('hide-btn');
+      $(".size-btn").find('.fa-minus').toggleClass('show-btn');
+      $(".size-btn").toggleClass('click');
     }
-    .header-right {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 40px;
+    else if(color) {
+      $(".color-btn").find('.fa-plus').toggleClass('hide-btn');
+      $(".color-btn").find('.fa-minus').toggleClass('show-btn');
+      $(".color-btn").toggleClass('click');
     }
-    .header-btn {
-        height: 100%;
-        
+    else if(others) {
+      $(".others-btn").find('.fa-plus').toggleClass('hide-btn');
+      $(".others-btn").find('.fa-minus').toggleClass('show-btn');
+      $(".others-btn").toggleClass('click');
     }
-    .header-accont-btns {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
+    else if(footer) {
+      $(".footer-btn").find('.fa-chevron-down').toggleClass('hide-btn');
+      $(".footer-btn").find('.fa-chevron-up').toggleClass('show-btn');
     }
-    .header-accont-btn-text {
-        font-size: 11px;
-        color: black;
-    }
-    .header-account-btn {
-        color: black;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 24px;
-        width: 24px;
-    }    
-    .header-hamberger-menu-list {
-        padding: 20px;
-        border-bottom: 1px solid black;
-    } */
-  /*---------------------------------
-  header-hamberger-menu
+  });
+  // , function() {
+  //   $(".category-btn, .price-btn, .size-btn ,.color-btn, .others-btn").css('color', '#ababab');
+  // });
+});
+/*---------------------------------
+  アコーディオンメニューのhover時
 ---------------------------------*/
-.header-sp {
-    display: flex !important;;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 10000;
-    height: 70px;
-    width: 100%;
-    /* position: fixed;
-    top: 0;
-    left: 0; */
-    border-bottom: 1px solid #dadada;
-    background-color: #fff;
-    padding: 15px 16px;
-    position: relative;
-}
-.header-logo-sp {
-    width: 90px;
-}
-/*　ハンバーガーボタン　*/
-.hamburger {
-  /* display : inline-block; */
-  z-index : 3;
-  width : 42px;
-  /* height: 42px; */
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  visibility: visible;
-  /* background-color: #fff; */
-}
-.hamburger span {
-  display : inline-block;
-  /* position: absolute; */
-  /* width   : 30px;
-  height  : 2px ; */
-  /* left    : 6px; */
-  /* background : #555;
-  -webkit-transition: 0.3s ease-in-out;
-  -moz-transition   : 0.3s ease-in-out;
-  transition        : 0.3s ease-in-out; */
-}
-.header-accont-btn-text {
-    display: inline-block;
-    font-size: 11px;
-    margin: 0;
-}
-.hamburger2 {
-    visibility: hidden;
-    position: fixed;
-    z-index : 3;
-    right : 13px;
-    top   : 12px;
-    width : 42px;
-    height: 42px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.hamburger2.show-btn {
-    visibility: visible;
-}
-.hamburger.hide-btn {
-    visibility: hidden;
-}
-nav.globalMenuSp {
-  position: fixed;
-  z-index : 2;
-  top  : 0;
-  left : 0;
-  color: #000;
-  background: #fff;
-  text-align: left;
-  transform: translateY(-100%);
-  transition: all 0.6s;
-  width: 100%;
-}
+$(function(){
+  $('.side-bar-btn').hover(function() {
+    var category = $(this).hasClass('category-btn');
+    var price = $(this).hasClass('price-btn');
+    var size = $(this).hasClass('size-btn');
+    var color = $(this).hasClass('color-btn');
+    var others = $(this).hasClass('others-btn');
+    var footer = $(this).hasClass('footer-btn');
 
-nav.globalMenuSp ul {
-  background: #fff;
-  margin: 0 auto;
-  padding: 0;
-  width: 100%;
-}
+    if(category){
+      $(".category-btn").children('.fas').css('color', 'gray');
+    }
+    if(price){
+      $(".price-btn").children('.fas').css('color', 'gray');
+    }
+    if(size){
+      $(".size-btn").children('.fas').css('color', 'gray');
+    }
+    if(color){
+      $(".color-btn").children('.fas').css('color', 'gray');
+    }
+    if(others){
+      $(".others-btn").children('.fas').css('color', 'gray');
+    }
+  }, function() {
+      $(".category-btn, .price-btn, .size-btn ,.color-btn, .others-btn").children('.fas').css('color', '');
 
-nav.globalMenuSp ul li {
-  list-style-type: none;
-  padding: 0;
-  width: 100%;
-  border-bottom: 1px solid #e7e7e7;
-}
-nav.globalMenuSp ul li:last-child {
-  padding-bottom: 0;
-  border-bottom: none;
-}
-nav.globalMenuSp ul li:hover{
-  background :#ddd;
-}
-
-nav.globalMenuSp ul li a {
-  display: block;
-  color: #000;
-  padding: 24px 17px;
-  text-decoration :none;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-/* このクラスを、jQueryで付与・削除する */
-nav.globalMenuSp.active {
-  transform: translateY(17%);
-}
-
-
-
-}
+  });
+});
 
 /*---------------------------------
-  menu-nav sp
+  PC画面のサイドバーのアコーディオンメニュー
 ---------------------------------*/
-.menu-nav {
-    /* margin-top: 50px; */
-}
-.menu-nav-btns {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px;
-    height: 60px;
-    margin: 0px;
-}
-.menu-nav-btn{
-    text-decoration: none;
-    color: black;
-    padding: 3.5px;
-    margin: 10px;
-    font-weight: bold;
-}
-.menu-nav-btns li {
-    height: 60px;
-    border-right: 1px solid #dadada;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-.menu-nav-btn.men {
-    border-bottom: 2px solid #378694;
-}
-.menu-nav-btn-list.women, .menu-nav-btn-list.kids, .menu-nav-btn-list.baby {
-    background-color: #F4F4F4;
-}
-.menu-nav-btn:hover {
-    color: black;
-}
-/* .menu-nav-btn.women, .menu-nav-btn.kids, .menu-nav-btn.baby { */
-    /* background-color: gray; */
-    /* border-bottom: 1px solid gray; */
-/* } */
-  /*---------------------------------
-  menu-wrapper
+$(function() {
+  $('.side-bar-btn').click(function()  {
+    var category = $(this).hasClass('category-btn');
+    var price = $(this).hasClass('price-btn');
+    var size = $(this).hasClass('size-btn');
+    var color = $(this).hasClass('color-btn');
+    var others = $(this).hasClass('others-btn');
+
+    var footer = $(this).hasClass('footer-btn');
+    if(category){
+      $('.category-btn').nextAll('.category-panel').slideToggle();
+    }
+    else if(price){
+      $('.price-btn').nextAll('.price-panel').slideToggle();
+    }
+    else if(size){
+      $('.size-btn').nextAll('.size-panel').slideToggle();
+    }
+    else if(color){
+      $('.color-btn').nextAll('.color-panel').slideToggle();
+    }
+    else if(others){
+      $('.others-btn').nextAll('.others-panel').slideToggle();
+    }
+    else if(footer){
+      $('.footer-btn').nextAll('.footer-panel').slideToggle();
+    }
+  });
+});
+
+$(function(){
+	$('.toggle_title').click(function(){
+		$(this).toggleClass('selected');
+		$(this).next().slideToggle();
+	});
+});
+
+$(function(){
+  $('.single-item').slick({
+    // accessibility: true,
+    autoplay: false,
+    autoplaySpeed: 1000,
+    dots: true,
+    // fade: true,
+    slidesToShow:4,
+    slidesToScroll:4,
+    arrows: true,
+
+    responsive: [{
+      breakpoint: 480,  //ブレイクポイントを指定
+      settings: {
+        slidesToShow:2.5,
+        slidesToScroll:2.5,
+        dots: false,
+        arrows: false,
+      }
+    }]
+
+  });
+});
+
+$(function(){
+	$('.toggle_title').click(function(){
+		$(this).toggleClass('selected');
+		$(this).next().slideToggle();
+	});
+});
+
+var $slider_container = $('.container'),
+    $slider = $('.single-item');
+
+$slider.slick({
+  appendArrows: $slider_container,
+  // FontAwesomeのクラスを追加
+  prevArrow: '<div class="slider-arrow slider-prev fa fa-angle-left"></div>',
+  nextArrow: '<div class="slider-arrow slider-next fa fa-angle-right"></div>',
+});
+
+/*---------------------------------
+  モバイル画面のヘッダーのハンバーガーメニュー
 ---------------------------------*/
-/* .menu-inner {
-    margin-left: 76px;
-    margin-right: 39px;
-} */
-.menu-wrapper {
-    margin: 51px 0 34px 0;
-    /* border-bottom: 1px #ccc solid; */
-    padding-bottom: 16px;
-    display: block;
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-    /* position: fixed;
-    top: 300px; */
-    z-index: 1000;
-    background-color: #fff;
-    width: 100%;
-    /* transition: 0.3s ease-in-out; */
-}
-.menu-wrapper2 {
-    padding: 24px 0 15px;
-    /* -webkit-transform: translateY(0); */
-    transform: translateY(0);
-    position: fixed;
-    top: -40px;
-    z-index: 1000;
-    background-color: #fff;
-    width: 100%;
-    transition: 0.3s ease-in-out;
-    border-bottom: 2px solid #ebebeb;
-}
-/* .menu2-inner {
-    margin-left: 76px;
-    margin-right: 69px;
-} */
-.menu-wrapper2._show {
-    visibility: visible;
-    /* display: block; */
-    position: fixed;
-    top: 73px;
-    left: 0;
-    border-bottom: 2px solid #ebebeb;
-   }
-.menu-wrapper2._none {
-    transition: none !important;
-    transform: none !important;
-    visibility: hidden;
-    /* display: none; */
-}
-
-.hideClass {
-    transform: translateY(-74px);
-  }
-.menu-container {
-      display: flex;
-      justify-content: space-between;
-      margin-left: 12px;
-  }
-  .result {
-      width: 237px;
-  }
-  .result-heading {
-      font-size: 13px;
-      font-weight: bold;
-      margin-bottom: 13px;
-  }
-  .filter-heading {
-      font-size: 13px;
-      font-weight: bold;
-      margin-bottom: 8px;
-  }
-  .result-number {
-      font-size: 15px;
-  }
-  .filter {
-      width: 650px;
-  }
-  .filter-box {
-    background-color: #F4F4F4;
-    height: 43px;
-    width: 43px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .filter-name {
-      font-size: .8125rem;
-      color: gray;
-  }
-  .sorting {
-      width: 184px;
-  }
-  .sorting-heading {
-      font-size: 15px;
-  }
-
-
-  .dropdown {
-    position: relative;
-    display:block;
-    margin-top:0.5em;
-    padding:0;
-    height: 41px;
-    width: 163px;
-    border-bottom: solid 1px #ABABAB;
-  }
-  .dropdown select {
-    width:100%;
-    margin:0;
-    background:none;
-    border: 1px solid transparent;
-    outline: none;
-    /* Prefixed box-sizing rules necessary for older browsers */
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    /* Remove select styling */
-    appearance: none;
-    -webkit-appearance: none;
-    /* Magic font size number to prevent iOS text zoom */
-    font-size: .9375rem;
-    /* General select styles: change as needed */
-    /* font-weight: bold; */
-    color: #444;
-    padding: .6em 1.9em .5em .8em;
-    line-height:1.3;
-  }
-  /* .dropdown select,
-  label {
-    font-family: AvenirNextCondensed-DemiBold, Corbel, "Lucida Grande","Trebuchet Ms", sans-serif;
-  } */
-  .dropdown::after {
-    content: "";
-    position: absolute;
-    width: 9px;
-    height: 8px;
-    top: 50%;
-    right: 1em;
-    margin-top:-4px;
-    z-index: 2;
-    background: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 12'%3E%3Cpolygon fill='rgb(102,102,102)' points='8,12 0,0 16,0'/%3E%3C/svg%3E") 0 0 no-repeat;  
-    /* These hacks make the select behind the arrow clickable in some browsers */
-    pointer-events:none;
-  }
-  @media only screen and (max-width: 480px) {
-    .menu-wrapper-sp {
-        position: relative;
-    }
-    .display-menu, .sorting-menu {
-        display: none;
-        background-color: #fff;
-        position: relative;
-        left: -2px;
-    }
-    .display-menu-btn span {
-        font-size: 11px;
-    }
-    .display-menu-btn i{
-        height: 24px;
-        width: 24px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 4px 0;
-    }
-    .display-menu.show, .sorting-menu.show {
-        display: inline-block;
-        z-index: 10000;
-    }
-    .menu-item-others i {
-        margin: 4px 0;
-    }
-    .sorting-menu {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-    }
-    .sorting-menu-btns {
-        margin: 21px 0 0 0;
-        padding: 0 17px;
-    }
-    .sorting-submit-btn {
-        margin: 36px 0 21px 0;
-    }
-    .sorting-menu-list input {
-        width: 24px;
-        height: 24px;
-    }
-    .sorting-menu-list {
-        display: flex;
-        align-items: center;
-        margin-bottom: 15px;
-    }
-    .sorting-menu-list label {
-        font-size: 13px;
-        padding: 2.5px 0 0 6.5px;
-    }
-    .sorting-submit-btn {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .sorting-submit-btn button {
-        width: 90%;
-        background-color: black;
-        color: white;
-        font-size: 16px;
-        font-weight: bold;
-        padding: 8px 4px;
-        appearance: none;
-        border: none;
-    }
-    .menu-item-display-btn, .menu-item-sorting-btn {
-        position: relative;
-    }
-    .display-menu-btn {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 70px;
-        width: 68px;
-        border: 1px solid #e0e0e0;
-        background-color: white;
-    }
-      .menu-items {
-          display: flex;
-          justify-content: space-around;
-          align-items: center;
-          height: 70px;
-          border-top: 1px solid #e0e0e0;
-          border-bottom: 1px solid #e0e0e0;
-          margin: 0;
-          padding: 0;
+$(function() {
+  $('.hamburger').click(function() {
+      $(this).addClass('active');
+      
+      if ($(this).hasClass('active')) {
+          $('.globalMenuSp').addClass('active');
       }
-      .menu-item-num {
-          height: 100%;
-          width: 50%;
-          border-right: 1px solid #e0e0e0;
-          display: flex;
-          align-items: center;
-          padding: 0 4vw;
-      }
-      .menu-item-others {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          color: black;
-          text-decoration: none;
-          width: 66px;
-          height: 100%;
-      }
-      .menu-item-others span {
-          font-size: 11px;
-      }
-      .menu-item-others.display, .menu-item-others.sorting {
-          border-right: 1px solid #e0e0e0;
-      }
-      .menu-items div{
-          height: 100%;
+       else {
+          $('.globalMenuSp').removeClass('active');
       }
 
-  }
- 
-  /*---------------------------------
-  top-wrapper
----------------------------------*/
-.top-wrapper {
-    margin-top: 43px;
-    padding-top: 74px;
-}
-.category-btns {
-    padding-bottom: 32px;
-}
-.category-btn {
-    color: black;
-    text-decoration: none;
-    font-size: 13px;
-    height: 44px;
-    width: 44px;
-    padding-right: 10px;
-}
-.heading {
-    font-size: 36px;
-    font-weight: bold;
-}
-.feature-btns {
-    display: flex;
-    flex-direction: column;
-    text-align: right;
-    margin-top: 28px;
-}
-.feature-btn {
-    color: black;
-    font-size: 13px;
-    margin-bottom: 5px;
-}
-@media only screen and (max-width: 480px) {
-    .top-wrapper {
-        margin-top: 0;
-        padding-top: 0;
-    }
-    .category-btns {
-        display: none;
-    }
-    .heading {
-        font-size: 20px;
-    }
-    .top-heading {
-        margin: 21px 16px;
-    }
-    .feature-btn {
-        margin: 9px 16px 0 9px;
-    }
-    .feature-btns {
-        margin-bottom: 9px;
-        font-weight: bold;
-    }
-    .menu-item-num {
-        font-weight: bold;
-        font-size: 11px;
-    }
-    .menu-item-num span {
-        font-size: 18px;
-    }
-}
+      $(this).addClass('hide-btn');
+      $('.hamburger2').addClass('show-btn');
+  });
+});
+$(function() {
+  $('.hamburger2').click(function() {
+      $(this).removeClass('active');
+      
+      if 
+      ($(this).hasClass('active')) {
+          $('.globalMenuSp').addClass('active');
+      } 
+      else
+       {
+          $('.globalMenuSp').removeClass('active');
+      }
 
-  /*---------------------------------
-  kinds-tab
----------------------------------*/
-.kinds-tab {
-    display: flex;
-    align-items: center;
-    /* padding: 30px 20px; */
-    height: 60px;
-    border-bottom: 1px solid #dadada;
-    margin: -5px 0;
-}
-.kinds-tab-btn {
-    /* margin-right: 20px; */
-    /* width: 85px; */
-    padding: 0 .75rem;
-    text-align:center;
-    color: #ababab;
-    text-decoration: none;
-    font-size: 16px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-}
-.kinds-tab-btn.men {
-    border-bottom: 1px solid #000;
-    color: black;
-}
-.kinds-tab-btn:hover {
-    color: black;
-}
-.kinds-tab-btn-underline {
-    padding-bottom: 4px;
-}
+      $(this).removeClass('show-btn');
+      $('.hamburger').removeClass('hide-btn');
+  });
+});
 
-.kinds-tab-btn-underline:hover {
-    /* border-bottom: 2px solid #1b1b1b; */
-    color: gray;
-}
-#side-bar-btn {
-    text-align: left;
-    font-size: 15px;
-    position: relative;
-    padding: 0;
-    height: 38px;
-    color: #ababab;
-}
-.category-btn.click, .price-btn.click, .size-btn.click, .color-btn.click, .others-btn.click {
-    color: black !important;
-    font-weight: bold;
-}
-.side-bar-btn i {
-    position: relative;
-    top: 5px;
-    right: 10px;
-}
-#footer-btn {
-    text-align: left;
-    padding: 0;
-    font-weight: bold;
-}
-.footer-onlinestores-btns {
-    padding: 0;
-}
-/*---------------------------------
-product-wrapper
----------------------------------*/
-.product-wrapper {
-    margin-bottom: 52px;
-}
-.product-container {
-    display: flex;
-    flex-direction: row;
-}
-.side-bar {
-    width: 250px;
-}
-.condition-bar {
-    display: flex;
-    flex-direction: column;
-    margin-top: 30px;
-}
-.condition-btn {
-    color: black;
-    text-decoration: none;
-    padding: 8px;
-    font-size: 15px;
-    color: gray;
-}
-.category-lists {
-    display: flex;
-    flex-direction: column;
-}
-.category-list {
-    text-decoration: none;
-    color: gray;
-    font-size: 13px;
-    padding: 8px 0;
-    margin-left: 24px;
-}
-.condition-color-item {
-    display: flex;
-    align-items: center;
-}
-.condition-color {
-    height: 16px;
-    width: 16px;
-    margin-right: 16px;
-}
-.condition-color-name {
-    font-size: .9375rem;
-    text-decoration: none;
-    color: black;
-}
-.sidebar-otherconditions-msg {
-    font-size: .9375rem;
-}
-.white {
-    background-color: white;
-    border: 1px solid #dadada;
-}
-.gray {
-    background-color: #dedede;
-}
-.black {
-    background-color: black;
-}
-.product-cards {
-    display: flex;
-    flex-wrap: wrap;
-}
-.product-card {
-    padding: 12px;
 
-    /* width: 200px; */
-}
-.product-card:hover {
-    /* display: block; */
-    border: 1px solid black;
-}
-.product-img {
-    width: 201px;
-    padding-bottom: 9px;
-}
-.product-colors {
-    padding-bottom: 8px;
-}
-.color {
-    width: 13px;
-}
-.product-text, .recommend-text {
-    display: flex;
-    justify-content: space-between;
-    font-size: 11px;
-    color: gray;
-    padding-top: 8px 0 8px 0;
-    height: 20px;
-}
-.product-name, .recommend-name {
-    /* margin: 5px 0; */
-    font-size: 15px;
-    font-weight: normal;
-    padding-bottom: 8px;
-    text-align: left;
-    color: black;
-    padding-top: 8px;
-}
-.product-price, .recommend-price {
-    color: red;
-    margin-bottom: 4px;
-    font-size: 20px;
-    font-weight: bold;
-    text-align: left;
-    padding-top: 8px;
-}
-.product-info, .recommend-info {
-    color: red;
-    font-size: 13px;
-    margin-bottom: 10px;
-}
-.star5_rating{
-    position: relative;
-    z-index: 0;
-    display: inline-block;
-    white-space: nowrap;
-    color: #CCCCCC; /* グレーカラー 自由に設定化 */
-    /*font-size: 30px; フォントサイズ 自由に設定化 */
-    margin-right: 4px;
-}
-
-.star5_rating:before, .star5_rating:after{
-    content: '★★★★★';
-}
-
-.star5_rating:after{
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    color: black; /* イエローカラー 自由に設定化 */
-}
-
-.star5_rating[data-rate="5"]:after{ width: 100%; } /* 星5 */
-.star5_rating[data-rate="4.5"]:after{ width: 90%; } /* 星4.5 */
-.star5_rating[data-rate="4"]:after{ width: 80%; } /* 星4 */
-.star5_rating[data-rate="3.5"]:after{ width: 70%; } /* 星3.5 */
-.star5_rating[data-rate="3"]:after{ width: 60%; } /* 星3 */
-.star5_rating[data-rate="2.5"]:after{ width: 50%; } /* 星2.5 */
-.star5_rating[data-rate="2"]:after{ width: 40%; } /* 星2 */
-.star5_rating[data-rate="1.5"]:after{ width: 30%; } /* 星1.5 */
-.star5_rating[data-rate="1"]:after{ width: 20%; } /* 星1 */
-.star5_rating[data-rate="0.5"]:after{ width: 10%; } /* 星0.5 */
-.star5_rating[data-rate="0"]:after{ width: 0%; } /* 星0 */
-
-.product-evaluation, .recommend-evaluation {
-    display: flex;
-    color: black;
-}
-
-.evaluation-num {
-    color: black;
-}
-.panel {
-    /* border: 1px solid #acac; */
-    border-left: none;
-    border-right:none;
-    /* background-color: white; */
-    padding: 8px 20px 8px 0;
-    display: none;
-  }
-  .panel ul {
-      padding: 0;
-  }
-  .box {
-    /* background-color: #eee; */
-    display: block;
-    display: inline-block;
-    width: 251px;
-    /* border: 1px solid #acac; */
-    height: 221px;
-    padding-right: 24px;
-    margin: 0 12px;
-  }
-  .btn{
-    display: block;
-    flex-grow: 1;
-    width: 100%;
-    /* padding: 20px; */
-    background-color: inherit;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    text-align: left;
-
-  }
-  .fas {
-    float: right;
-  }
-
-  .price-panel-index {
-      margin-bottom: 12px;
-      font-size: 15px;
-      /* padding: 8px 0; */
-  }
-  .price-panel-index label{
-      color: #1b1b1b;
-  }
-
-  .price-panel-index input[type="checkbox"]{
-    display: none;
-}
-/* チェックボックスの代わりを成すラベル */
-.price-panel-index input[type="checkbox"]+label{
-    display: none;
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    padding-left: 32px;
-    /* padding-right: 16px; */
-}
-  /* ラベルの左に表示させる正方形のボックス□ */
-.price-panel-index input[type="checkbox"]+label::before{
-    content: "";
-    position: absolute;
-    display: block;
-    box-sizing: border-box;
-    width: 20px;
-    height: 20px;
-    margin-top: -10px;
-    left: 0;
-    top: 50%;
-    border: 1px solid;
-    border-color:  #585753; /* 枠の色変更 お好きな色を */
-    background-color: #FFF; /* 背景の色変更 お好きな色を */
-}
-.price-panel-index input[type="checkbox"]:checked+label::before {
-
-    /*チェックしたときの箱の色を変える*/
-    background: black;
-
-}
-
-/* チェックが入った時のレ点 */
-.price-panel-index input[type="checkbox"]:checked+label::after{
-    content: "";
-    position: absolute;
-    display: block;
-    box-sizing: border-box;
-    width: 18px;
-    height: 9px;
-    margin-top: -9px;
-    top: 50%;
-    left: 3px;
-    transform: rotate(-45deg);
-    border-bottom: 3px solid;
-    border-left: 3px solid;
-    border-color:  white; /* チェックの色変更 お好きな色を */
-
-}
-.sidebar-size-list1 {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 16px;
-}
-.sidebar-size-list1 div {
-    width: 40px;
-    height: 40px;
-}
-.sidebar-size-btn {
-    border: 1px #dadada solid;
-    height: 32px;
-    width: 32px;
-    padding: 4px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: .8125rem;
-    color: #dadada;
-}
-.sidebar-size-btn:hover {
-    border: 1px black solid;
-}
-.sidebar-size-list2 {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 16px;
-}
-.sidebar-size-btn-num {
-    border: 1px #dadada solid;
-    height: 32px;
-    width: 75px;
-    padding: 4px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: .8125rem;
-    color: #dadada;
-}
-.sidebar-size-num:hover {
-    border: 1px black solid;
-}
-.sidebar-size-btn-num:hover {
-    border: 1px black solid;
-}
-.show-more {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-.show-more-btn {
-    text-decoration: underline;
-    color: black;
-    font-size: 13px;
-}
-.fa-plus {
-    visibility: visible;
-}
-.fa-minus {
-    visibility: hidden;
-    position: relative !important;
-    top: 5px !important;
-    right: -2px !important;
-}
-.fa-plus.hide-btn {
-    visibility: hidden;
-}
-.fa-minus.show-btn {
-    visibility: visible;
-}
-
-@media only screen and (max-width: 480px) {
-    .inner {
-        width: 100%;
-        margin: 0 auto;
-    }
-    .side-bar {
-        display: none;
-    }
-    .product-card {
-        width: 50%;
-        padding: 0px;
-        border-right: 1px solid white;
-    }
-    .product-img {
-        width: 100%;
-    }
-    .star5_rating:after {
-        color: #EBBE00;
-    }
-    .evaluation-num {
-        color: black;
-        
-    }
-    .show-more {
-        padding: 20px;
-        border-top: 1px solid gray;
-        border-bottom: 1px solid gray;
-        text-decoration: none;
-    }
-    .product-txt {
-        margin: 0 16.5px 21px;
-    }
-    .product-wrapper {
-        margin-bottom: 21px;
-    }
-    .show-more-btn {
-        margin-right: 10px;
-        text-decoration: none;
-    }
-    .blanck {
-        width: 100%;
-        height: 50px;
-    }
-}
 
 /*---------------------------------
-recommend-wrapper
+  モバイル画面のトップスクロール
 ---------------------------------*/
-.recommend-wrapper {
-    margin-bottom: 52px;
-}
-.recommend-cards {
-    display: flex;
-    flex-wrap: wrap;
-}
-.recommend-heading {
-    font-size: 30px;
-    margin-bottom: 24px;
-}
-.recommend-card {
-    padding: 0 24px 10px 0;
-    /* border: black 1px solid; */
-    width: 276px;
-}
-.recommend-img {
-    width: 100%;
-}
-.recommend-colors {
-    padding-top: 16px;
-    display: flex;
-}
-.color {
-    margin-right: 6px;
-}
-.recommend-text {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 8px;
-}
-.recommend-price {
-    color: red;
-}
-.recommend-info {
-    color: red;
-    text-align: left;
-}
-@media only screen and (max-width: 480px) {
-    .recommend-heading {
-        font-size: 18px;
-    }
-    .recommend-wrapper {
-        margin: 0;
-        padding-bottom: 55px;
-        border-bottom: 1px solid gray;
-    }
-}
+$(function() {
+  var topBtn = $('#page-top');
+  // 元々は見えないようにしておく
+  topBtn.hide();
+
+  // スクロールしたらボタンを表示
+  $(window).scroll(function () {
+      if ($(this).scrollTop() > 300) {
+          topBtn.fadeIn();
+      } else {
+          topBtn.fadeOut();
+      }
+  });
+
+  // スクロールでトップへ戻る
+  topBtn.click(function () {
+      $('body,html').animate({
+          scrollTop: 0
+      }, 300);
+      return false;
+  });
+});
+
 /*---------------------------------
-category-wrapper
+  モバイル画面のメニュー
 ---------------------------------*/
-@media only screen and (max-width: 480px) {
-    .category-wrapper-sp {
-        padding: 21px 16.5px;
-        border-bottom: 1px solid gray;
-    }
-    .category-btns-sp {
-        color: black;
-    }
-    .category-btns-sp {
-        font-size: 13px;
-    }
-    .show-more-btn {
-        font-size: 14px;
-    }
-}
+$(function() {
+  $('.menu-item-display').click(function() {
+    $(this).nextAll().toggleClass('show');
+  });
+});
+$(function() {
+  $('.menu-item-sorting-btn').click(function() {
+    $('.sorting-menu').toggleClass('show');
+  });
+});
+
 /*---------------------------------
-footer
+  上にスクロールで表示、下スクロールで非表示
 ---------------------------------*/
-footer {
-    background-color: #F4F4F4;
-}
-.footer {
-    
-    padding: 27px 0;
-}
-.footer-inner {
-    margin: 0 75.5px;
-}
-.footer-btns {
-    height: 155px;
-    margin-bottom: 24px;
-}
-.footer-info-btn, .footer-onlinestores-btn {
-    text-decoration: none;
-    color: gray;
-    padding: 0 13px;
-    font-size: 13px;
-    margin-bottom: 16px;
-}
-.footer-onlinestores-btns {
-    display: flex;
-    margin-top: 21px;
-    padding-left: 10px;
-    font-size: 15px;
-}
-.border-right {
-    border-right: 1px solid black;
-}
-.copylight {
-    border-top: #dadada 1px solid;
-    padding: 22px 0 0 11px;
-    /* padding-top: 30px; */
-}
-.sns-btns {
-    display: flex;
-    justify-content: flex-end;
-    height: 40px;
-}
-h6 {
-    font-size: 15px;
-}
-small {
-    font-size: 13px;
-    color: gray;
-}
-.sns-btn {
-    font-size: 40px;
-    margin: 0 16px 16px 0;
-    height: 40px;
-    /* display: inherit */
-}
-.sns-btn i {
-    width: 100%;
-    box-sizing: border-box;
-}
+var pos = 0;
 
-@media only screen and (max-width: 480px) {
-    .footer {
-        padding: 36px 0 74px 0;
+$(window).on('scroll', function(){
+  if($(this).scrollTop() > 300 ){
+    $('.menu-wrapper2').removeClass('_none');
+    if($(this).scrollTop() > pos ){
+      //上スクロール時に表示
+      $('.menu-wrapper2').removeClass('_show');
+    }else{
+      //下スクロール時に表示
+      $('.menu-wrapper2').addClass('_show');
     }
-    .footer-inner-sp {
-        width: 90%;
-        margin: 0 auto;
-    }
-    .footer-info-btns {
-        display: flex;
-        flex-direction: column;
-        border-top: 2px solid #000;
-    }
-    .footer-btns {
-        height: auto;
-    }
-    .border-right {
-        border-right: 0px;
-    }
-    .footer-info-btn {
-        color: black;
-        border-bottom: 1px solid gray;
-        padding: 24px 0;
-        font-size: 14px;
-        margin: 0;
-        font-weight: bold;
-    }
-    .sns-btns {
-        display: flex;
-        flex-direction: column;
-        height: auto;
-    }
-    .sns-btns-text {
-        padding: 24px 0 10px;
-    }
-    .sns-btns-text span {
-        font-weight: bold;
-    }
-    .sns-btns ul {
-        padding: 0;
-        border-bottom: 1px solid gray;
-    }
-    .sns-btns ul li {
-        display: flex;
-    }
-    .fa-chevron-up {
-        visibility: hidden;
-        position: relative !important;
-        top: 5px !important;
-        right: -2px !important;
-    }
-    .fa-chevron-down {
-        visibility: visible;
-    }
-    .fa-chevron-up.show-btn {
-        visibility: visible;
-    }
-    .fa-chevron-down.hide-btn {
-        visibility: hidden;
-    }
-    .footer-onlinestores-btns {
-        display: flex;
-        flex-direction: column;
-        padding: 0;
-    }
-    .copylight {
-        text-align: center;
-        font-size: 11px;
-    }
-    /*---------------------------------
-    page top
-    ---------------------------------*/
-    .page-top {
-        position: fixed;
-        bottom: 75px;
-        right: 0px;
-        opacity: .9;
-        border: 1px solid #ebebeb;
-    }
-
-    #page-top {
-        display: flex;
-        flex-direction: column;
-        font-size: 13px;
-        text-align: center;
-        color: black;
-        background-color: #fff;
-        padding: 10px;
-        height: 50px;
-        width: 50px;
-    }
-
-    #page-top:hover {
-        text-decoration: none;
-    } 
-    #page-top-icon {
-        visibility: visible;
-    }
-    .bottom-nav {
-        background-color: red;
-        width: 100%;
-        position: fixed;
-        bottom: 0;
-    }
-    .bottom-nav-btns {
-        display: flex;
-        justify-content: space-around;
-        padding: 0;
-        margin: 0;
-    }
-    .bottom-nav-btn {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-decoration: none;
-        color: white;
-        padding: 8.5px 0;
-    }
-    .bottom-nav-btn span {
-        font-size: 13px;
-    }
-    .bottom-nav-btn i {
-        font-size: 24px;
-    }
-    
-}
-
-
-
-
-.plus-minus {
-    display: block;
-    position: relative;
+  } 
+  else {
+    $('.menu-wrapper2').removeClass('_show').addClass('_none');
   }
-  
-  /* 二本の横棒を作成する */
-  .plus-minus::before,
-  .plus-minus::after {
-    content: '';
-    display: block;
-    width: 15px;
-    height: 3px;
-    border-radius: 5px;
-    background: blue;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  .plus-minus::after {
-    background: red;
-    /* 横棒を縦にするために90℃回転させる */
-    /* transform: translateY(-50%) rotate(90deg); */
-    /* プラスからマイナスへの切り替えをゆっくり行いアニメーションさせる */
-    transition: 0.5s;
-    
-  }
-  
-  /*
-  プラスがクリックされたら縦棒を横にしてマイナスにする疑似要素
-  jQueryで付け外しを行う
-  */
-  .active::after {
-    transform: rotate(0);
-    transition: 0.5s;
-    display: none;
-  }
-
-  .container {
-    margin: 0 auto;
-    /* padding: 40px; */
-    width: 100%;
-    color: #333;
-    background: white;
-  }
-  
-  .slick-slide {
-    text-align: center;
-    color: #419be0;
-    background: white;
-  }
-
-  .toggle_btn {
-	position: absolute;
-	top: 50%;
-	right: 20px;
-	transform: translateY(-50%);
-	background: #0052a4;
-	display: block;
-	width: 24px;
-	height: 24px;
-	text-indent: 100%;
-	white-space: nowrap;
-	overflow: hidden;
-	border-radius: 50%;
-}
-.toggle_btn:before, .toggle_btn:after {
-	display: block;
-	content: '';
-	background-color: #fff;
-	position: absolute;
-	width: 10px;
-	height: 2px;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-.toggle_btn:before {
-	width: 2px;
-	height: 10px;
-}
-.toggle_title.selected .toggle_btn:before {
-	content: normal;
-}
-.toggle_contents dd {
-	display: none;
-}
-
-
-
-
+  //スクロールが停止した位置を保持
+  pos = $(this).scrollTop();
+});
