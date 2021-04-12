@@ -1272,7 +1272,7 @@ footer {
     padding: 27px 0;
 }
 .footer-inner {
-    margin: 0 75.5px;
+    /* margin: 0 75.5px; */
 }
 .footer-btns {
     height: 155px;
